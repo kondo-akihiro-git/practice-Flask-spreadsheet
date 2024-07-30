@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>Spreadsheet App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Spreadsheet App</h1>
+    <form action="{{ url_for('create') }}" method="post">
+        <input type="text" name="name" placeholder="Spreadsheet name">
+        <button type="submit">Create</button>
+    </form>
+    <ul>
+        {% for spreadsheet in spreadsheets %}
+        <li>
+            <a href="{{ url_for('edit', id=spreadsheet.id) }}">{{ spreadsheet.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+    <title>Edit Spreadsheet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Edit {{ spreadsheet.name }}</h1>
+    <form action="{{ url_for('edit', id=spreadsheet.id) }}" method="post">
+        <textarea name="data" rows="20" cols="80">{{ spreadsheet.data }}</textarea>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
